@@ -3,28 +3,31 @@
         <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
         {% endif %}
 				{% block content %}
-					{% for post in posts %}
+					{% for post in bola %}
     				<!--<div class="post">
     					<div class="date">
         					{{ post.published_date }}
         				</div>-->
         			<div class="col-md-6">
-		  				<div class="content-box-large">
-		  					<div class="panel-heading">
-								<div class="panel-title"><h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1></div>
-							
-							<div class="panel-options">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content-box-header">
+                            
+                                <div class="panel-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></div>
+                            
+                            <div class="panel-options">
 								<!--<a href="#" data-rel="collapse"><i class="glyphicon glyphicon-refresh"></i></a>
 								<a href="#" data-rel="reload"><i class="glyphicon glyphicon-cog"></i></a>-->
 								{{ post.published_date }}
 							</div>
         					</div>
-        					<div class="panel-body">
+        					<div class="content-box-large box-with-header">
         						<p>{{ post.fokus|linebreaks }}</p>
         						<a class="btn btn-info" href="{% url 'post_detail' pk=post.pk %}"><i class="glyphicon glyphicon-eye-open"></i> Read More</a>
     						</div>
     					</div>
     				</div>
+                    </div>
     				
 					{% endfor %}
 					{% endblock %}

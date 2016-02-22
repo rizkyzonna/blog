@@ -16,7 +16,7 @@
 	           <div class="col-md-5">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.html">Blog</a></h1>
+	                 <h1><a href="{% url 'post_list' %}">Blog</a></h1>
 	              </div>
 	           </div>
 	           <div class="col-md-5">
@@ -31,11 +31,12 @@
 	                </div>
 	              </div>
 	           </div>
+	           {% if user.is_authenticated %}
 	           <div class="col-md-2">
 	              <div class="navbar navbar-inverse" role="banner">
 	                  <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
 	                    <ul class="nav navbar-nav">
-	                    {% if user.is_authenticated %}
+	                    
 	                      <li class="dropdown">
 	                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
 	                        <ul class="dropdown-menu animated fadeInUp">
@@ -43,11 +44,12 @@
 	                          <li><a href="login.html">Logout</a></li>
 	                        </ul>
 	                      </li>
-	                     {% endif %}
+	                     
 	                    </ul>
 	                  </nav>
 	              </div>
 	           </div>
+	           {% endif %}
 	        </div>
 	     </div>
 	</div>
@@ -58,24 +60,27 @@
 		  	<div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
                     <!-- Main menu -->
-                    <li class="current"><a href="index.html"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-                    <li><a href="calendar.html"><i class="glyphicon glyphicon-calendar"></i> Calendar</a></li>
-                    <li><a href="stats.html"><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
-                    <li><a href="tables.html"><i class="glyphicon glyphicon-list"></i> Tables</a></li>
-                    <li><a href="buttons.html"><i class="glyphicon glyphicon-record"></i> Buttons</a></li>
-                    <li><a href="editors.html"><i class="glyphicon glyphicon-pencil"></i> Editors</a></li>
-                    <li><a href="forms.html"><i class="glyphicon glyphicon-tasks"></i> Forms</a></li>
-                    <li class="submenu">
+                    <li class="current"><a href="{% url 'post_list' %}"><i class="glyphicon glyphicon-home"></i> Home</a></li>
+                    <li><a href="{% url 'umum' %}"><i class="glyphicon glyphicon-globe"></i> Umum</a></li>
+                    <li><a href="stats.html"><i class="glyphicon glyphicon-book"></i> Inpirasi</a></li>
+                    <li><a href="{% url 'bola' %}"><i class="glyphicon glyphicon-record"></i> Bola</a></li>
+                    <li><a href="buttons.html"><i class="glyphicon glyphicon-screenshot"></i> Games</a></li>
+                    <li><a href="editors.html"><i class="glyphicon glyphicon-headphones"></i> Suka suka</a></li>
+                    <li><a href="forms.html"><i class="glyphicon glyphicon-thumbs-up"></i> Serius</a></li>
+                    <li><a href="buttons.html"><i class="glyphicon glyphicon-cloud-download"></i> Sofware</a></li>
+                    <li><a href="editors.html"><i class="glyphicon glyphicon-film"></i> Movie</a></li>
+                    <li><a href="forms.html"><i class="glyphicon glyphicon-check"></i> Tutorial</a></li>
+                    <!--<li class="submenu">
                          <a href="#">
                             <i class="glyphicon glyphicon-list"></i> Pages
                             <span class="caret pull-right"></span>
                          </a>
                          <!-- Sub menu -->
-                         <ul>
+                        <!-- <ul>
                             <li><a href="login.html">Login</a></li>
                             <li><a href="signup.html">Signup</a></li>
                         </ul>
-                    </li>
+                    </li>-->
                 </ul>
              </div>
 		  </div>

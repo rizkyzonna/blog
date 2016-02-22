@@ -6,13 +6,17 @@ from .forms import PostForm
 
 
 def post_list(request):
-	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-pk')[:3]
+	posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-pk')[:4]
 	return render(request,'blog/post_list.html',{'posts':posts})
 
 def bola (request):
-	bola = Post.objects.filter(kategori='FootBall').order_by('-pk')[:3]
+	bola = Post.objects.filter(kategori='FootBall').order_by('-pk')[:4]
 	return render(request, 'blog/bola.html', {'bola':bola})
 
+def umum (request):
+	umum = Post.objects.filter(kategori='umum').order_by('-pk')[:4]
+	return render(request, 'blog/umum.html', {'umum':umum})
+	
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'blog/post_detail.html', {'post': post})
